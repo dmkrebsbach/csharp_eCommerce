@@ -1,0 +1,94 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+body{
+    margin: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+
+h3{
+    text-align: center;
+}
+
+form {
+    display: block;
+    margin: 10px auto;
+}
+
+form label, input, textarea, select {
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+}
+
+form .button {
+    display: block;
+    margin: 10px auto;
+}
+
+table {
+    margin-top: 25px;
+    width: 50%;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px auto;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+table td {
+    text-align: center;
+    color: black;
+    margin: 0px auto;
+    width: 24%;
+}
+
+table th {
+    border: 3px solid black;
+}
+
+table tr {
+    margin: 0px auto;
+    width: 24%;
+    border: 1px solid black;
+}
+
+.item {
+    height: 120px;
+    width: 120px;
+    outline: 1px solid black;
+}
+
+.item {
+    margin: 5px;
+}
+
+.item img {
+    height: 50px;
+    width: 50px;
+}
+
+.productBox {
+    display: flex;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+a.showMore {
+    text-align: center;
+    display: block;
+}
+
+.infoBox {
+    display: block;
+    margin: 35px auto;
+}
+
+.infoBox p, h3 {
+    text-align: center;
+}

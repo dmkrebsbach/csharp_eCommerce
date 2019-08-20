@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E Commerce Dashboard</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="~/css/dashboard.css">
+    </head>
+    @model DashboardViewModel
+    <body>
+        <div class="header">
+            <h3><a href="/dashboard">DASHBOARD</a>||<a href="/products">PRODUCTS</a>||<a href="/orders">ORDERS</a>||<a href="/customers">CUSTOMERS</a>||</h3>
+        </div>
+
+        <div class="productBox">
+            @foreach(Product product in Model.Products){
+                <div class="item">
+                    <img src="@product.Url" alt="@product.Name">
+                    <p>@product.Name</p>
+                    <p>(@product.Quantity left)</p>
+                </div>
+            }
+        </div>
+        <a class="showMore" href="/products">show more...</a>
+
+        <div class="infoBox">
+            <h3>Recent Orders</h3>
+            @foreach(Order order in Model.Orders){
+                <p>@order.Customer.FirstName purchased @order.Quantity @order.Product.Name (@order.CreatedAt.ToString("hh:mm tt"))</p>
+            }
+            <a class="showMore" href="/orders">show all orders...</a>
+
+        </div>
+
+        <div class="infoBox">
+            <h3>New Customers</h3>
+            @foreach(Customer customer in Model.Customers){
+                <p>@customer.FirstName @customer.LastName joined the store (@customer.CreatedAt.ToString("hh:mm tt"))</p>
+            }
+            <a class="showMore" href="/customers">show all customers...</a>
+            
+        </div>
+
+    </body>
+</html>

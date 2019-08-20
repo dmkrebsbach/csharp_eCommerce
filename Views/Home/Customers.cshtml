@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>E Commerce Dashboard</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="~/css/customers.css">
+	</head>
+    <body>
+        @model CustomerViewModel
+        <div class="header">
+            <h3><a href="/dashboard">DASHBOARD</a>||<a href="/products">PRODUCTS</a>||<a href="/orders">ORDERS</a>||<a href="/customers">CUSTOMERS</a>||</h3>
+        </div>
+
+        <div class="container">
+            <form asp-action="CreateCustomer" asp-controller="Home" method="post">
+                <h3>Add a new customer</h3>
+
+                <span asp-validation-for="newCustomer.FirstName"></span>
+                <label asp-for="newCustomer.FirstName">First Name</label>
+                <input type="text" asp-for="newCustomer.FirstName">
+
+                <span asp-validation-for="newCustomer.LastName"></span>
+                <label asp-for="newCustomer.LastName">Last Name</label>
+                <input type="text" asp-for="newCustomer.LastName">
+
+                <span asp-validation-for="newCustomer.Email"></span>
+                <label asp-for="newCustomer.Email">Email</label>
+                <input type="email" asp-for="newCustomer.Email">
+
+                <input class="button" type="submit" value="Add">
+            </form>
+
+            <table>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Customer Email</th>
+                    <th>Created Date</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach(Customer customer in Model.Customers){
+                    <tr>
+                        <td>@customer.FirstName @customer.LastName</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.CreatedAt.ToString("MMMM d, yyyy gg")</td>
+                        <td><a href="/customer/remove/@customer.CustomerId">Remove</a></td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+
+    </body>
+</html>
